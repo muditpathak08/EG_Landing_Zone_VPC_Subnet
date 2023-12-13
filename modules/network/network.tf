@@ -83,12 +83,13 @@ resource "aws_nat_gateway" "nat" {
 ###########################
 
 resource "aws_route_table" "private_route" {
+  count = "${length(var.private_subnets)}"
   vpc_id = "${aws_vpc.aws-vpc.id}"
 
   # Default route through NAT
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "${element(aws_nat_gateway.nat.*.id)}"
+    gateway_id = "${element(aws_nat_gateway.nat.*.id, count.index)}"
   }
   tags = {
     Name = "${var.service}-private-route-table"
