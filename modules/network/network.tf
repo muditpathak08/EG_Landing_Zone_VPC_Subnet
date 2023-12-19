@@ -59,7 +59,6 @@ resource "aws_route_table_association" "public" {
 ## Elastic IP
 ##############
 resource "aws_eip" "eip" {
-  count = var.create ? 1: 0
   tags = {
       Name = "${var.service}-eip"
       Terraform   = "true"
@@ -69,9 +68,8 @@ resource "aws_eip" "eip" {
 ## Nat Gateway
 ##############
 resource "aws_nat_gateway" "nat" {
-  count = var.create ? 1: 0
-  allocation_id = "${aws_eip.eip[count.index].id}"
-  subnet_id = "${aws_subnet.public[count.index].id}"
+  allocation_id = aws_eip.eip.id
+  subnet_id = aws_subnet.public.*.id
   depends_on = [aws_eip.eip, aws_internet_gateway.aws-igw, aws_subnet.public]
   tags ={
     Name = "${var.service}-ngw"
