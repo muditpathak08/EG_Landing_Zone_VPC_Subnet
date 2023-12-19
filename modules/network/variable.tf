@@ -13,8 +13,8 @@ variable "public_subnets" {
   description = "List of public subnets"
 }
 variable "create" {
-  type = string
-  description = create resources or not
+  type = boolean
+  description = "create resources or not"
 }
 variable "private_subnets" {
   type =list
