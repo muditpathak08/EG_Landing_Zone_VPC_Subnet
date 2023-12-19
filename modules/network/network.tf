@@ -69,8 +69,7 @@ resource "aws_eip" "eip" {
 ##############
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.eip.id
-  count          = length(var.public_subnets)
-  subnet_id      = element(aws_subnet.public.*.id, count.index)
+  subnet_id      = aws_subnet.public.*.id
   depends_on = [aws_eip.eip, aws_internet_gateway.aws-igw, aws_subnet.public]
   tags ={
     Name = "${var.service}-ngw"
