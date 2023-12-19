@@ -7,7 +7,10 @@ variable "cidr" {
   description = "The CIDR block for the VPC."
   type = string
 }
-
+variable "create" {
+  type = string
+  description = create resources or not
+}
 variable "public_subnets" {
   type = list
   description = "List of public subnets"
