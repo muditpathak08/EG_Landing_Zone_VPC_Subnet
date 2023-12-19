@@ -12,7 +12,7 @@ resource "aws_subnet" "public" {
   count                   = length(var.public_subnets)
   map_public_ip_on_launch = true
   tags = {
-    Name        = "${var.service}-public-${var.availability_zones[count.index + 1]}"
+    Name        = "${var.service}-public-${var.availability_zones[count.index}"
     Terraform   = "true"
   }
 }
