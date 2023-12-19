@@ -8,7 +8,7 @@ variable "cidr" {
   type = string
 }
 variable "create" {
-  type = boolean
+  type = bool
   description = "create resources or not"
 }
 variable "public_subnets" {
