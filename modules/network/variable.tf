@@ -2,6 +2,15 @@ variable "service" {
   type        = string
   description = "Application Name"
 }
+variable "public_subnet_name" {
+  type        = string
+  description = "public subnet name"
+}
+
+variable "private_subnet_name" {
+  type        = string
+  description = "private subnet name"
+}
 
 variable "cidr" {
   description = "The CIDR block for the VPC."
