@@ -1,8 +1,3 @@
-output "eip" {
-  value       = module.network.eip
-  description = "Elastic IP for NGW"
-}
-
 output "nat" {
   value       = module.network.nat
   description = "Nat Gateway for Route Table for  Subnet"
