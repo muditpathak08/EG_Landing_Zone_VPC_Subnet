@@ -2,6 +2,10 @@ variable "service" {
   type        = string
   description = "Application Name"
 }
+variable "eip_id" {
+  type        = string
+  description = "Elastic IP ID"
+}
 variable "public_subnet_name" {
   type        = list
   description = "public subnet name"
