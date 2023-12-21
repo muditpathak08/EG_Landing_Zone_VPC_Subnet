@@ -1,8 +1,3 @@
-output "eip" {
-  value       = aws_eip.eip.*.id
-  description = "Elastic IP for NGW"
-}
-
 output "nat" {
   value       = aws_nat_gateway.nat.*.id
   description = "Nat Gateway for Route Table for  Subnet"
