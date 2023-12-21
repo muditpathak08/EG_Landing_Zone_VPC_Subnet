@@ -12,7 +12,7 @@ resource "aws_subnet" "public" {
   count                   = length(var.public_subnets)
   map_public_ip_on_launch = true
   tags = {
-    Name        = "${var.public_subnet_name}"
+    Name        = "${var.public_subnet_name[count.index]}"
     Terraform   = "true"
   }
 }
@@ -22,7 +22,7 @@ resource "aws_subnet" "private" {
   cidr_block        = element(var.private_subnets, count.index)
   availability_zone = element(var.availability_zones, count.index)
   tags = {
-    Name        = "${var.private_subnet_name}"
+    Name        = "${var.private_subnet_name[count.index]}"
     Terraform   = "true"
   }
 }
