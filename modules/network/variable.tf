@@ -3,12 +3,12 @@ variable "service" {
   description = "Application Name"
 }
 variable "public_subnet_name" {
-  type        = string
+  type        = list
   description = "public subnet name"
 }
 
 variable "private_subnet_name" {
-  type        = string
+  type        = list
   description = "private subnet name"
 }
 
