@@ -1,6 +1,7 @@
 module "network" {
   source             = "./modules/network"
   cidr               = var.cidr
+  eip_id             = var.eip_id
   service            = var.service
   public_subnets     = var.public_subnets
   availability_zones = var.availability_zones
