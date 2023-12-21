@@ -83,8 +83,6 @@ resource "aws_route_table" "private_route" {
   }
   tags = {
     Name = "${var.service}-private-route-table"
-    Environment = "${var.tag_environment}"
-    Application = "${var.tag_application}"
     Terraform   = "true"
    }
 }
