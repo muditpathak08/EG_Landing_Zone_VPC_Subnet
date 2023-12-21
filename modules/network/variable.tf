@@ -29,3 +29,7 @@ variable "private_subnets" {
 variable "availability_zones" {
   description = "List of availability zones"
 }
+variable "eip_id" {
+  type        = string
+  description = "Elastic IP ID"
+}
